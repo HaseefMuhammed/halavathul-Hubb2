@@ -19,6 +19,9 @@ const studentCodeInput = document.getElementById('studentCode');
                 case '104':
                     name = 'ANMF';
                     break;
+                case '105':
+                        name = 'namehere';
+                        break;
                 default:
                     name = 'Student not found';
             }
