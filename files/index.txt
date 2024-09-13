@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scoreboard Editor</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bootstrap.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+  <dialog id="scoreUpdateDialog" class="align-items-center text-center">
+    <img width="100%" src="images/done.gif" alt="">
+    <p>Edits are done.</p>
+    <button id="closeDialog" class="btn btn-primary">Close</button>
+</dialog>
+
+
+  <div class="main-editor">
+    <div class="ttl text-center">
+      <h1 class="text-center">Scoreboard Editor</h1>
+      <h3 class="text-danger">Update Scores</h3>
+    </div>
+    <div class="student-sect mt-3">
+      <p class="head">STUDENT BASED</p>
+      <div class="form-std">
+        <form id="submit-form">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3 std-input">
+                <!-- <label for="studentCode">ENTER STUDENT CODE</label>
+                <input type="text" id="studentCode" name="Student Code"> -->
+
+                <label>
+                  <input type="radio" name="Programe-Type" value="Individual" onclick="toggleInputs()"> Individual
+              </label>
+              <label>
+                  <input type="radio" name="Programe-Type" value="Group" onclick="toggleInputs()"> Group
+              </label>
+      
+              <div id="individualInput" class="hidden-inp">
+                  <label>Member 1 Chest No:</label>
+                  <input type="text" name="Individual">
+              </div>
+      
+              <div id="groupInputs" class="hidden-inp">
+                  <label>Member 1 Chest No:</label>
+                  <input type="text" id="studentCode1" name="Group member 1"><br>
+                  <label>Member 2 Chest No:</label>
+                  <input type="text" id="studentCode2" name="Group member 2"><br>
+                  <label>Member 3 Chest No:</label>
+                  <input type="text" id="studentCode3" name="Group member 3"><br>
+                  <label>Member 4 Chest No:</label>
+                  <input type="text" id="studentCode4" name="Group member 4"><br>
+                  <label>Member 5 Chest No:</label>
+                  <input type="text" id="studentCode5" name="Group member 5"><br>
+              </div>
+
+              </div>
+              <div class="col-md-3 std-input">
+                <label for="program">SELECT PROGRAM</label>
+                <br>
+                <select id="program" name="Program">
+                  <option value="">Select</option>
+                  <option value="P1">P1</option>
+                  <option value="P2">P2</option>
+                  <option value="P3">P3</option>
+                  <option value="P4">P4</option>
+                  <option value="P5">P5</option>
+                  <option value="P6">P6</option>
+                  <option value="P7">P7</option>
+                  <option value="P8">P8</option>
+                  <option value="P9">P9</option>
+                </select>
+              </div>
+              <div class="col-md-3 std-input">
+                <label for="points">ENTER POINT</label>
+                <br>
+                <input type="number" id="points" name="Point Student">
+              </div>
+              <div class="col-md-3 std-input">
+                <label for="place">ENTER PLACE</label>
+                <br>
+                <!-- <input type="text" id="place" name="Place"> -->
+                <select id="place" name="Place">
+                  <option value="">Select</option>
+                  <option value="First">First</option>
+                  <option value="Second">Second</option>
+                  <option value="Third">Third</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="student-sect mt-3">
+            <p class="head">Group BASED</p>
+            <div class="form-std">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-3 std-input">
+                    <label for="team">SELECT TEAM</label>
+                    <br>
+                    <select id="team" name="Group">
+                      <option value="">Select</option>
+                      <option value="team1">Team-1</option>
+                      <option value="team2">Team-2</option>
+                      <option value="team3">Team-3</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3 std-input">
+                    <label for="teamScore">SCORE</label>
+                    <br>
+                    <input type="number" id="teamScore" name="Score Group" readonly>
+                  </div>
+                  <div class="col-md-3 std-input">
+                    <label for="timeInput">TIME</label>
+                    <br>
+                    <input type="text" id="timeInput" readonly name="Time">
+                  </div>
+                  <div class="col-md-3 std-input">
+                    <label for="notice">NOTICE</label>
+                    <br>
+                    <!-- <input type="text" id="notice"> -->
+                    <textarea class="form-control" id="notice" rows="3" name="Notice"></textarea>
+                  </div>
+                </div>
+              </div>
+              <h3 class="text-danger text-center" id="message-imp"></h3>
+              <div class="button-board mt-5 text-center align-items-center">
+                <button id="update-score" class="btn btn-success" type="button">SUBMIT</button>
+                <br>
+                <button onclick="openScoreboard()" class="btn btn-warning mt-3" type="button">OPEN LIVE SCOREBOARD</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script>
+
+    // Add score live for 2 inputes
+
+    document.getElementById("points").addEventListener("input", function() {
+            document.getElementById("teamScore").value = this.value;
+        });
+
+    $("#update-score").click(() => {
+        const program = document.getElementById('program').value;
+        const team = document.getElementById('team').value;
+        const points = parseInt(document.getElementById('teamScore').value);
+        const notice = document.getElementById('notice').value;
+
+        if (!program || !team || isNaN(points)) {
+            document.getElementById("message-imp").innerHTML = "Fill the form !!!";
+            return;
+        }
+
+        const formData = {
+            "Program": program,
+            "Group": team,
+            "Score Group": points,
+            "Notice": notice,
+            // // "Student Code": document.getElementById('studentCode').value,
+            // "Student code1": document.getElementById('studentCode1').value,
+            // "Student code2": document.getElementById('studentCode2').value,
+            // "Student code3": document.getElementById('studentCode3').value,
+            // "Student code4": document.getElementById('studentCode4').value,
+            // "Student code5": document.getElementById('studentCode5').value,
+            "Place": document.getElementById('place').value,
+            "Point Student": document.getElementById('points').value,
+            "Time": document.getElementById('timeInput').value
+        };
+
+        $.ajax({
+            url: "https://script.google.com/macros/s/AKfycbxYtV4xxcdXZgSuGfMoaij0CZgnjtSEMqzfoXvU3EJe5tGQVjmM7aPmgwROD0nHmnwQWg/exec",
+            data: formData,
+            method: "post",
+            success: function(response) {
+                console.log("Form submitted successfully");
+                // Open the dialog on successful submission
+                document.getElementById('scoreUpdateDialog').showModal();
+            },
+            error: function(err) {
+                console.log("Form submission error");
+            }
+        });
+
+        if (scoreboardWindow && !scoreboardWindow.closed) {
+            scoreboardWindow.postMessage({ program, team, points, notice }, '*');
+        } else {
+            alert("Please open the scoreboard first.");
+        }
+    });
+
+    // Close the dialog when the close button is clicked
+    document.getElementById('closeDialog').addEventListener('click', function() {
+        document.getElementById('scoreUpdateDialog').close();
+    });
+
+    let scoreboardWindow;
+    function openScoreboard() {
+        if (!scoreboardWindow || scoreboardWindow.closed) {
+            scoreboardWindow = window.open('scoreboard.html', '_blank', 'width=800,height=600');
+        } else {
+            scoreboardWindow.focus();
+        }
+    }
+</script>
+
+  <script src="bootstrap.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

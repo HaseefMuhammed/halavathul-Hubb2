@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scoreboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bootstrap.css">
+
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="banner-img">
+        <img class="img-fluid mt-2" src="images/banner.png" alt="">
+      </div>
+      <div class="info mt-2 d-flex align-items-center">
+        <p class="d-t" id="datetime"></p>
+        <h1 class="m-head flex-grow-1">SCORE BOARD</h1>
+        <p class="live-status">LIVE</p><div class="live-circle"></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="text-center">
+    <div class="studentLiveProgressOut" role="alert">
+      <h5>Current Update :</h5>
+      <p id="studentLiveProgressOut"></p>
+    </div>
+  </section>
+
+  <section class="mt-1">
+    <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="scoreTeamBased">
+          <p class="group-name">dul fuqar</p>
+          <p class="scoreGroup" id="scoreDulFuqarOut">00</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="scoreTeamBased">
+          <p class="group-name">bul bul</p>
+          <p class="scoreGroup" id="scoreBulBulOut">00</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="scoreTeamBased">
+          <p class="group-name">dul dul</p>
+          <p class="scoreGroup" id="scoreDulDulOut">00</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <section class="mt-3 message">
+    <marquee id="notice-marquee" behavior="scroll" direction="left"></marquee>
+  </section>
+
+  <!-- <section class="short-forms">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <ul>
+            <li>P1: group song</li>
+            <li>P2: single song</li>
+            <li>P3: speech malayalam</li>
+          </ul>  
+        </div>
+        <div class="col-md-4">
+          <ul>
+            <li>P4: story telling -ml</li>
+            <li>P5: story telling -eng</li>
+            <li>P6: coloring</li>
+          </ul>  
+        </div>
+        <div class="col-md-4">
+          <ul>
+            <li>P7: drawing</li>
+            <li>P8: book reading</li>
+            <li>P9: hifl</li>
+          </ul>  
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="board-fin">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="bg-warning head-table-dec" scope="col">Group Name [Boys]</th>
+          <th class="bg-warning head-table-dec" scope="col">KB-1</th>
+          <th class="bg-warning head-table-dec" scope="col">KB-2</th>
+          <th class="bg-warning head-table-dec" scope="col">KB-3</th>
+          <th class="bg-warning head-table-dec" scope="col">KB-4</th>
+          <th class="bg-warning head-table-dec" scope="col">KB-5</th>
+          <th class="bg-warning head-table-dec" scope="col">KB-6</th>
+          <th class="bg-warning head-table-dec" scope="col">KB-7</th>
+          <th class="bg-warning head-table-dec" scope="col">KB-8</th>
+          <th class="bg-warning head-table-dec" scope="col">KB-9</th>
+          <th class="bg-warning head-table-dec" scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody id="scoreboardBody">
+        <tr>
+          <th class="group-head-table-dec" scope="row">DUL FUQAR -B</th>
+          <td class="group-table-dec" id="DUL-FUQAR-B-kb1">0</td>
+          <td class="group-table-dec" id="DUL-FUQAR-B-kb2">0</td>
+          <td class="group-table-dec" id="DUL-FUQAR-B-kb3">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-kb4">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-kb5">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-kb6">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-kb7">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-kb8">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-kb9">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-sjb1">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-sjb2">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-sjb3">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-sjb4">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-sjb5">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-sjb6">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-sjb7">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-sjb8">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-sjb9">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-B-total">0</td>
+        </tr>
+        <tr>
+          <th class="group-head-table-dec" scope="row">BUL BUL -B</th>
+          <td class="group-table-dec " id="BUL-BUL-B-kb1">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-kb2">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-kb3">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-kb4">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-kb5">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-kb6">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-kb7">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-kb8">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-kb9">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-sjb1">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-sjb2">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-sjb3">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-sjb4">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-sjb5">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-sjb6">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-sjb7">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-sjb8">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-sjb9">0</td>
+          <td class="group-table-dec " id="BUL-BUL-B-total">0</td>
+        </tr>
+        <tr>
+          <th class="group-head-table-dec" scope="row">DUL DUL -B</th>
+          <td class="group-table-dec " id="DUL-DUL-B-kb1">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-kb2">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-kb3">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-kb4">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-kb5">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-kb6">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-kb7">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-kb8">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-kb9">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-sjb1">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-sjb2">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-sjb3">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-sjb4">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-sjb5">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-sjb6">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-sjb7">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-sjb8">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-sjb9">0</td>
+          <td class="group-table-dec " id="DUL-DUL-B-total">0</td>
+        </tr>
+      </tbody>
+        <!-- Girls -->
+        <thead>
+          <tr>
+            <th class="bg-warning head-table-dec" scope="col">Group Name [Girls]</th>
+            <th class="bg-warning head-table-dec" scope="col">KG-1</th>
+            <th class="bg-warning head-table-dec" scope="col">KG-2</th>
+            <th class="bg-warning head-table-dec" scope="col">KG-3</th>
+            <th class="bg-warning head-table-dec" scope="col">KG-4</th>
+            <th class="bg-warning head-table-dec" scope="col">KG-5</th>
+            <th class="bg-warning head-table-dec" scope="col">KG-6</th>
+            <th class="bg-warning head-table-dec" scope="col">KG-7</th>
+            <th class="bg-warning head-table-dec" scope="col">KG-8</th>
+            <th class="bg-warning head-table-dec" scope="col">KG-9</th>
+            <th class="bg-warning head-table-dec" scope="col">KG-10</th>
+            <th class="bg-warning head-table-dec" scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody id="scoreboardBody">
+        <tr>
+          <th class="group-head-table-dec" scope="row">DUL FUQAR -G</th>
+          <td class="group-table-dec" id="DUL-FUQAR-G-kg1">0</td>
+          <td class="group-table-dec" id="DUL-FUQAR-G-kg2">0</td>
+          <td class="group-table-dec" id="DUL-FUQAR-G-kg3">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-kg4">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-kg5">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-kg6">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-kg7">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-kg8">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-kg9">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-kg10">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-sjg1">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-sjg2">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-sjg3">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-sjg4">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-sjg5">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-sjg6">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-sjg7">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-sjg8">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-sjg9">0</td>
+          <td class="group-table-dec " id="DUL-FUQAR-G-total">0</td>
+        </tr>
+        <tr>
+          <th class="group-head-table-dec" scope="row">BUL BUL -G</th>
+          <td class="group-table-dec" id="BUL-BUL-G-kg1">0</td>
+          <td class="group-table-dec" id="BUL-BUL-G-kg2">0</td>
+          <td class="group-table-dec" id="BUL-BUL-G-kg3">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-kg4">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-kg5">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-kg6">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-kg7">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-kg8">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-kg9">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-kg10">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-sjg1">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-sjg2">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-sjg3">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-sjg4">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-sjg5">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-sjg6">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-sjg7">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-sjg8">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-sjg9">0</td>
+          <td class="group-table-dec " id="BUL-BUL-G-total">0</td>
+        </tr>
+        <tr>
+          <th class="group-head-table-dec" scope="row">DUL DUL -G</th>
+          <td class="group-table-dec" id="DUL-DUL-G-kg1">0</td>
+          <td class="group-table-dec" id="DUL-DUL-G-kg2">0</td>
+          <td class="group-table-dec" id="DUL-DUL-G-kg3">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-kg4">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-kg5">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-kg6">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-kg7">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-kg8">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-kg9">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-kg10">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-sjg1">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-sjg2">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-sjg3">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-sjg4">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-sjg5">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-sjg6">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-sjg7">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-sjg8">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-sjg9">0</td>
+          <td class="group-table-dec " id="DUL-DUL-G-total">0</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+
+  <section class="board-fin mt-3"></section>
+  
+  
+
+<section class="text-center">
+  <p id="autoText" style="display: none;">This is auto generated scoresheet more info visit haseef-ws.netlify.app or www.webcraaft.42web.io</p>
+  <button id="printBtn" class="print-btn">print</button>
+</section>
+
+
+
+  <script>
+    
+    window.addEventListener('message', function(event) {
+    const data = event.data;
+    console.log('Received data:', data);
+
+    const { team, program, points, notice, studentAndProgram } = data;
+
+    // Update the score for the team and program
+    if (team && program && !isNaN(points)) {
+        const teamElement = document.getElementById(`${team}-${program.toLowerCase()}`);
+        if (teamElement) {
+            console.log(`Updating ${team}-${program.toLowerCase()} with ${points} points.`);
+            const currentPoints = parseInt(teamElement.textContent) || 0;
+            teamElement.textContent = currentPoints + points;
+
+            // Update total points
+            const teamTotalElement = document.getElementById(`${team}-total`);
+            if (teamTotalElement) {
+                const teamTotal = Array.from(teamTotalElement.parentElement.children)
+                    .slice(1, -1) // Skip the first cell (team name) and last cell (total)
+                    .reduce((acc, cell) => acc + (parseInt(cell.textContent) || 0), 0);
+
+                teamTotalElement.textContent = teamTotal;
+            }
+        } else {
+            console.error(`Element with ID ${team}-${program.toLowerCase()} not found!`);
+        }
+    }
+
+    // Display the notice if provided
+    if (notice && notice.trim() !== '') {
+        const noticeElement = document.getElementById('notice-marquee');
+        if (noticeElement) {
+            noticeElement.textContent = "Message: " + notice + " |Powerd by WWW.WEBCRAAFT.42WEB.IO";
+        } else {
+            console.error('Notice element not found!');
+        }
+    }
+
+    // Display studentAndProgram if provided
+    if (studentAndProgram && studentAndProgram.trim() !== '') {
+        const studentLiveProgressElement = document.getElementById('studentLiveProgressOut');
+        if (studentLiveProgressElement) {
+            studentLiveProgressElement.textContent = studentAndProgram;
+        } else {
+            console.error('Student live progress element not found!');
+        }
+    }
+
+    // Get scores and update <p> elements
+    // Get the 'DUL-FUQAR-B-total' element and update 'scoreDulFuqarOut'
+const dulFuqarTotal = document.getElementById('DUL-FUQAR-B-total');
+const dulFuqarGTotal = document.getElementById('DUL-FUQAR-G-total');
+if (dulFuqarTotal && dulFuqarGTotal) {
+    // Parse both totals as numbers, add them, and update the output
+    const dulFuqarBValue = parseInt(dulFuqarTotal.textContent, 10) || 0;
+    const dulFuqarGValue = parseInt(dulFuqarGTotal.textContent, 10) || 0;
+    const updatedDulFuqarTotal = dulFuqarBValue + dulFuqarGValue;
+
+    // Update the B total with the new total
+    // dulFuqarTotal.textContent = updatedDulFuqarTotal;
+    document.getElementById('scoreDulFuqarOut').textContent = updatedDulFuqarTotal;
+} else {
+    if (!dulFuqarTotal) console.error('DUL-FUQAR-B-total element not found!');
+    if (!dulFuqarGTotal) console.error('DUL-FUQAR-G-total element not found!');
+}
+
+// Bul Bul
+
+// Similar code for BulBul and DulDul totals:
+const bulBulTotal = document.getElementById('BUL-BUL-B-total');
+const bulBulGTotal = document.getElementById('BUL-BUL-G-total');
+if (bulBulTotal && bulBulGTotal) {
+    const bulBulBValue = parseInt(bulBulTotal.textContent, 10) || 0;
+    const bulBulGValue = parseInt(bulBulGTotal.textContent, 10) || 0;
+    const updatedBulBulTotal = bulBulBValue + bulBulGValue;
+    
+    // bulBulTotal.textContent =  updatedBulBulTotal;
+    document.getElementById('scoreBulBulOut').textContent = updatedBulBulTotal;
+} else {
+    if (!bulBulTotal) console.error('BUL-BUL-B-total element not found!');
+    if (!bulBulGTotal) console.error('BUL-BUL-G-total element not found!');
+}
+
+// DUL DUL
+
+const dulDulTotal = document.getElementById('DUL-DUL-B-total');
+const dulDulGTotal = document.getElementById('DUL-DUL-G-total');
+if(dulDulTotal && dulDulGTotal){
+  const dulDulBValue = parseInt(dulDulTotal.textContent, 10) || 0;
+  const dulDulGValue = parseInt(dulDulGTotal.textContent, 10) || 0;
+  const updatedDulDulTotal = dulDulBValue + dulDulGValue;
+
+  document.getElementById('scoreDulDulOut').textContent = updatedDulDulTotal;
+}else{
+  if (!dulDulTotal) console.error('DUL-DUL-B-total element not found!');
+  if (!dulDulGTotal) console.error('DUL-DUL-G-total element not found!');
+}
+
+});
+
+
+// Update the date and time
+function updateDateTime() {
+    const now = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+    const datetimeElement = document.getElementById('datetime');
+    if (datetimeElement) {
+        datetimeElement.textContent = now.toLocaleString('en-US', options);
+    } else {
+        console.error('Datetime element not found!');
+    }
+}
+
+setInterval(updateDateTime, 1000);
+updateDateTime();
+
+document.getElementById('printBtn').addEventListener('click', function() {
+    // Get the paragraph element
+    const autoText = document.getElementById('autoText');
+
+    // Check if the text is currently hidden
+    if (autoText.style.display === 'none') {
+        // Show the text
+        autoText.style.display = 'block';
+    } 
+    print();
+});
+
+  </script>
+
+  <!-- Gstatic cast -->
+
+  
+
+  <script src="bootstrap.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

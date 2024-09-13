@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+
+.student-sect .head{
+  text-align: center;
+  /* background-color: orange; */
+  /* background-color: #68e00; */
+  background-color: rgba(250, 248, 248, 0.317);
+  padding: 0.5em;
+  font-weight: bold;
+}
+.select-std{
+  width: 80%;
+  height: 60%;
+}
+/* board */
+
+.info .d-t{
+  text-align: left;
+}
+.info .m-head{
+  text-align: center;
+  margin-left: -180px;
+}
+.info .live-status{
+  text-align: right;
+}
+.message marquee{
+  background-color: yellow;
+  color: black;
+  font-weight: bolder;
+}
+.print-btn{
+  background-color: rgb(43, 80, 225);
+  color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.5em;
+  width: 30%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.print-btn:hover{
+  opacity: 0.8;
+}
+
+/* Dialog */
+
+#scoreUpdateDialog {
+  width: 300px;
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: #f7f7f7;
+}
+#scoreUpdateDialog p{
+  text-align: center;
+  font-size: 1.5em;
+}
+#scoreUpdateDialog button{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#scoreUpdateDialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Live cirlce */
+.live-circle{
+  border-radius: 50%;
+  padding: 1em;
+  background-color: red;
+  animation: blkLive;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+@keyframes blkLive{
+  50%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+.banner-img img{
+  width: 100%;
+  border-radius: 5px;
+}
+.m-head{
+  font-family: "Nerko One", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4em;
+}
+/* .head-table-dec{
+  text-align: center;
+}
+.group-table-dec {
+  text-align: center;
+}
+.group-head-table-dec{
+  text-align: center;
+} */
+
+
+/* Student live progress display */
+.studentLiveProgressOut{
+  background-color: rgba(34, 214, 133, 0.614);
+  display: inline-block;
+  width: 50%;
+  border-radius: 5px;
+}
+.studentLiveProgressOut p{
+  text-transform: uppercase;
+}
+
+/* Text center */
+.ttl-sub{
+  text-transform: uppercase;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#studentLiveProgressOut{
+  font-size: 13px;
+  font-weight: bolder;
+}
+
+/* Team */
+.scoreTeamBased{
+  background: rgb(24,18,18);
+background: linear-gradient(98deg, rgba(24,18,18,1) 62%, rgba(177,198,126,1) 100%);
+  padding: 1em;
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+  text-transform: uppercase;
+  border-radius: 5px;
+}
+.scoreTeamBased .scoreGroup{
+  font-size: 2em;
+}
+
+footer{
+  background-color: #33333391;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  /* padding: 1em; */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-transform: uppercase;
+}
+footer a{
+  color: white;
+}
+#update-score:hover{
+  transition: all ease 0.4s;
+  background-color: red;
+}
+#update-score:active{
+  background-color: red;
+}
